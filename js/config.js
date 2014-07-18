@@ -2,16 +2,15 @@ var config = {
     "shirts": [
         {
             "name": "blueish",
-            "display-name": "Blue moon",
+            "displayName": "Blue moon",
             "length": 35,
-            "options": {
-                "colar": {
-                    "length": 3
-                },
-                "cuff": {
-                    "length": 4
-                }
-            }
+            "options": [{
+                "optionName": "colar",
+                "length": 3
+            }, {
+                "optionName": "cuff",
+                "length": 4
+            }]
         }
     ]
 };
