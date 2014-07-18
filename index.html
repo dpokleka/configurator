@@ -8,10 +8,22 @@
 </head>
 <body>
 
-    <div class="configurator"></div>
+    <div id="configurator"></div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+    <script id='template' type='text/ractive'>
+        <img src="{{ shirt.path }}"/>
+        <img src="{{ option1.path }}"/>
+        <img src="{{ option2.path }}"/>
+        <select>
+    </script>
+
+    <select>
+        <option value="{{ optionN }}">colar01</option>
+        <option value="02">colar02</option>
+    </select>
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>-->
+    <!--<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>-->
     <!--<script src="js/bootstrap.min.js"></script>-->
     <script src='//cdn.ractivejs.org/latest/ractive.js'></script>
     <script src="js/config.js"></script>

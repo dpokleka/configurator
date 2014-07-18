@@ -1,8 +1,9 @@
 var config = {
     "shirts": [
         {
-            "name": "bluish",
+            "name": "blueish",
             "display-name": "Blue moon",
+            "length": 35,
             "options": {
                 "colar": {
                     "length": 3
@@ -13,4 +14,4 @@ var config = {
             }
         }
     ]
-}
+};

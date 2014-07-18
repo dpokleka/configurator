@@ -1,17 +1,31 @@
-$(function(){
+//$(function(){
+//});
 
-    var $confDiv = $(".configurator");
+//var configurator = {
+//    shirt: {
+//        path: 'assets/shirts/blueish/base/base_0.png'
+//    },
+//    option1: {
+//        path: 'assets/shirts/blueish/options/colar/colar01/colar01_0.png'
+//    },
+//    option2: {
+//        path: 'assets/shirts/blueish/options/cuff/cuff01/cuff01_0.png'
+//    }
+//};
 
 
-    var $image = $('<img />');
-    var $image2 = $('<img />');
-    var $image3 = $('<img />');
+var configurator = {};
 
-    $image.attr('src', 'assets/shirts/blueish/base/base_0.png');
-    $image2.attr('src', 'assets/shirts/blueish/options/colar/colar01/colar01_0.png');
-    $image3.attr('src', 'assets/shirts/blueish/options/cuff/cuff01/cuff01_0.png');
+configurator.shirt = {};
+configurator.shirt.path =
+    'assets/shirts/' +
+    config.shirts[0].name +
+    '/base/' +
+    'base_0.png';
 
-    $confDiv.append($image);
-    $confDiv.append($image2);
-    $confDiv.append($image3);
+
+var ractive = new Ractive({
+    el: 'configurator',
+    template: '#template',
+    data: configurator
 });
