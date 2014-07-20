@@ -1,19 +1,7 @@
 //$(function(){
 //});
 
-//var configurator = {
-//    shirt: {
-//        path: 'assets/shirts/blueish/base/base_0.png'
-//    },
-//    option1: {
-//        path: 'assets/shirts/blueish/options/colar/colar01/colar01_0.png'
-//    },
-//    option2: {
-//        path: 'assets/shirts/blueish/options/cuff/cuff01/cuff01_0.png'
-//    }
-//};
 var configurator = {};
-configurator.selectedOption = 'colar-colar01';
 
 configurator.shirt = {};
 configurator.shirt.path =
@@ -22,33 +10,35 @@ configurator.shirt.path =
     '/base/' +
     'base_0.png';
 
-configurator.options = config.shirts[0].options;
-
-configurator.options.forEach(function(option) {
-    option.values = [];
-
-    for (var i = 1; i <= option.length; i++) {
-        option.values.push({
-            value: option.optionName + ('0' + i).slice(-2),
-            name: option.optionName + ('0' + i).slice(-2)
-        });
-    }
-});
-
-var ractive = new Ractive({
-    el: 'configurator',
+var image = new Ractive({
+    el: 'image',
     template: '#template',
     data: configurator
 });
 
-ractive.observe('selectedOption', function(newValue, oldValue) {
-    var optionPair = newValue.split('-');
-    var selectedOption = optionPair[0];
-    var selectedValue = optionPair[1];
+var option1 = new Ractive({
+    el: 'option1',
+    template: '#options',
+    data: config.shirts[0].options.colar
+});
 
+var option2 = new Ractive({
+    el: 'option2',
+    template: '#options',
+    data: config.shirts[0].options.cuff
+});
+
+option1.observe('selectedOption', function(newValue, oldValue) {
     var option = {};
     option.path = 'assets/shirts/' + config.shirts[0].name +
-        '/options/' + selectedOption + '/' + selectedValue + '/' + selectedValue + '_0.png';
+        '/options/colar/' + newValue + '/' + newValue + '_0.png';
 
-    ractive.set('option1', option);
+    image.set('option1', option);
+});
+option2.observe('selectedOption', function(newValue, oldValue) {
+    var option = {};
+    option.path = 'assets/shirts/' + config.shirts[0].name +
+        '/options/cuff/' + newValue + '/' + newValue + '_0.png';
+
+    image.set('option2', option);
 });

@@ -8,28 +8,26 @@
 </head>
 <body>
 
-    <div id="configurator"></div>
+    <div id="image"></div>
+    <div id="option1"></div>
+    <div id="option2"></div>
 
     <script id='template' type='text/ractive'>
-
         <div class="images">
             <img src="{{ shirt.path }}"/>
             <img src="{{ option1.path }}"/>
             <img src="{{ option2.path }}"/>
         </div>
+    </script>
 
-
+    <script id="options" type="text/ractive">
         <div class="options">
-            {{#options}}
-                <select name="{{optionName}}" value={{selectedOption}}>
-                    {{#values}}
-                        <option value="{{optionName}}-{{value}}">{{name}}</option>
-                    {{/values}}
-                </select>
-            {{/options}}
+            <select name="{{displayName}}" value={{selectedOption}}>
+                {{#values}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/values}}
+            </select>
         </div>
-
-        <h1>{{selectedOption}}</h1>
     </script>
 
     <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>-->
