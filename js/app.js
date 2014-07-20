@@ -36,11 +36,17 @@ for (var i = 0; i <= configurator.lastImageIndex; i++) {
     configurator.images.push(basePath(i));
 
     option1Data.values.forEach(function(value) {
-        configurator.colarImages.push(optionPath('colar', value, i));
+        configurator.colarImages.push({
+            id: value + '-' + i,
+            src: optionPath('colar', value, i)
+        });
     });
 
     option2Data.values.forEach(function(value) {
-        configurator.cuffImages.push(optionPath('cuff', value, i));
+        configurator.cuffImages.push({
+            id: value + '-' + i,
+            src: optionPath('cuff', value, i)
+        });
     });
 }
 
@@ -64,22 +70,22 @@ var option2 = new Ractive({
 
 option1.observe('selectedOption', function(selectedOption) {
     $('.image').css({visibility: 'hidden'});
-    $('img[src="' + basePath(configurator.selectedImage) + '"]').css({visibility: 'visible'});
-    $('img[src="' + optionPath('colar', selectedOption, configurator.selectedImage) + '"]').css({visibility: 'visible'});
-    $('img[src="' + optionPath('cuff', option2Data.selectedOption, configurator.selectedImage) + '"]').css({visibility: 'visible'});
+    document.getElementById('image-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
+    document.getElementById(selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
+    document.getElementById(option2Data.selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
 });
 
 option2.observe('selectedOption', function(selectedOption) {
     $('.image').css({visibility: 'hidden'});
-    $('img[src="' + basePath(configurator.selectedImage) + '"]').css({visibility: 'visible'});
-    $('img[src="' + optionPath('colar', option1Data.selectedOption, configurator.selectedImage) + '"]').css({visibility: 'visible'});
-    $('img[src="' + optionPath('cuff', selectedOption, configurator.selectedImage) + '"]').css({visibility: 'visible'});
+    document.getElementById('image-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
+    document.getElementById(option1Data.selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
+    document.getElementById(selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
 });
 
 image.observe('selectedImage', function(step) {
     $('.image').css({visibility: 'hidden'});
-    $('img[src="' + basePath(step) + '"]').css({visibility: 'visible'});
-    $('img[src="' + optionPath('colar', option1Data.selectedOption, step) + '"]').css({visibility: 'visible'});
-    $('img[src="' + optionPath('cuff', option2Data.selectedOption, step) + '"]').css({visibility: 'visible'});
+    document.getElementById('image-' + step).setAttribute('style', 'visibility: visible;');
+    document.getElementById(option1Data.selectedOption + '-' + step).setAttribute('style', 'visibility: visible;');
+    document.getElementById(option2Data.selectedOption + '-' + step).setAttribute('style', 'visibility: visible;');
 });
 
