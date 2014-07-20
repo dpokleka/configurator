@@ -17,11 +17,17 @@ body {
 }
 
 .progress-overlay {
-    align-items: center;
     background: white;
     bottom: 0;
     display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
     justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
     left: 0;
     position: fixed;
     right: 0;
