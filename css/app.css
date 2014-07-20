@@ -1,11 +1,18 @@
 .images {
     margin: 50px 0;
     position: relative;
+    height: 600px;
 }
 
 .images .image {
-    width: 80%;
-    margin: 0 10%;
+    /*width: 80%;*/
+    /*margin: 0 10%;*/
+    /*faster than with percentages*/
+    width: 700px;
+    margin: 0 150px;
+
+    position: absolute;
+    visibility: hidden;
 }
 
 .images .image-overlay {

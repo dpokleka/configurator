@@ -1,4 +1,3 @@
-configurator
-============
+# configurator
 
 Prototype for shirt configurator
