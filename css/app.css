@@ -12,7 +12,8 @@
     margin: 0 150px;
 
     position: absolute;
-    visibility: hidden;
+    opacity: 0;
+    transform: translateZ(0);
 }
 
 .images .image-overlay {
