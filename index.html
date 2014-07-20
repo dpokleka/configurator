@@ -18,10 +18,11 @@
 
     <script id='template' type='text/ractive'>
         <div class="images">
-            <img class="image" src="{{ shirt.path }}"/>
-            <img class="image image-overlay" src="{{ option1.path }}"/>
-            <img class="image image-overlay" src="{{ option2.path }}"/>
+            <img class="image" src="{{ imageSrc }}"/>
+            <img class="image image-overlay" src="{{ option1Src }}"/>
+            <img class="image image-overlay" src="{{ option2Src }}"/>
         </div>
+        <input class="slider" type="range" min="0" max="{{ lastImageIndex }}" step="1" value="{{ selectedImage }}"/>
     </script>
 
     <script id="options" type="text/ractive">

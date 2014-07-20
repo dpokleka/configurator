@@ -3,13 +3,20 @@
 
 var configurator = {};
 
-configurator.shirt = {};
-configurator.shirt.path =
-    'assets/shirts/' +
-    config.shirts[0].name +
-    '/base/' +
-    'base_0.png';
+configurator = {};
+configurator.lastImageIndex = 34;
+configurator.selectedImage = 0;
 
+var option1Data = config.shirts[0].options.colar;
+var option2Data = config.shirts[0].options.cuff;
+
+option1Data.selectedOption = option1Data.values[0];
+option2Data.selectedOption = option2Data.values[0];
+
+var optionPath = function(optionName, optionValue, step) {
+    return 'assets/shirts/' + config.shirts[0].name +
+        '/options/' + optionName + '/' + optionValue + '/' + optionValue + '_' + step + '.png';
+};
 var image = new Ractive({
     el: 'image',
     template: '#template',
@@ -19,26 +26,31 @@ var image = new Ractive({
 var option1 = new Ractive({
     el: 'option1',
     template: '#options',
-    data: config.shirts[0].options.colar
+    data: option1Data
 });
 
 var option2 = new Ractive({
     el: 'option2',
     template: '#options',
-    data: config.shirts[0].options.cuff
+    data: option2Data
 });
 
 option1.observe('selectedOption', function(newValue, oldValue) {
-    var option = {};
-    option.path = 'assets/shirts/' + config.shirts[0].name +
-        '/options/colar/' + newValue + '/' + newValue + '_0.png';
-
-    image.set('option1', option);
+    image.set('option1Src', optionPath('colar', newValue, configurator.selectedImage));
 });
 option2.observe('selectedOption', function(newValue, oldValue) {
-    var option = {};
-    option.path = 'assets/shirts/' + config.shirts[0].name +
-        '/options/cuff/' + newValue + '/' + newValue + '_0.png';
-
-    image.set('option2', option);
+    image.set('option2Src', optionPath('cuff', newValue, configurator.selectedImage));
 });
+image.observe('selectedImage', function(step) {
+
+    var path =
+        'assets/shirts/' +
+            config.shirts[0].name +
+            '/base/' +
+            'base_' + step + '.png';
+
+    image.set('imageSrc', path);
+    image.set('option1Src', optionPath('colar', option1Data.selectedOption, step));
+    image.set('option2Src', optionPath('cuff', option2Data.selectedOption, step));
+});
+
