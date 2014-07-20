@@ -1,0 +1,22 @@
+{
+  "name": "configurator",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dpokleka/configurator",
+  "authors": [
+    "dpokleka",
+    "zvidic",
+    "mzgajner"
+  ],
+  "description": "Configurator for shirts.",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "ractive": "~0.5.5"
+  }
+}
