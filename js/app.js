@@ -5,7 +5,8 @@ var configurator = {};
 
 configurator = {};
 configurator.lastImageIndex = 34;
-configurator.selectedImage = 0;
+configurator.initialStep = 17;
+configurator.selectedImage = configurator.initialStep;
 
 var option1Data = config.shirts[0].options.colar;
 var option2Data = config.shirts[0].options.cuff;
@@ -15,7 +16,20 @@ option2Data.selectedOption = option2Data.values[0];
 
 var optionPath = function(optionName, optionValue, step) {
     return 'assets/shirts/' + config.shirts[0].name +
-        '/options/' + optionName + '/' + optionValue + '/' + optionValue + '_' + step + '.png';
+        '/options/' + optionName + '/' + optionValue + '/' + optionValue + '_' + calculateStep(step) + '.png';
+};
+var basePath = function(step) {
+    return 'assets/shirts/' + config.shirts[0].name +
+        '/base/' + 'base_' + calculateStep(step) + '.jpg';
+
+};
+var calculateStep = function(step) {
+    var totalImages = configurator.lastImageIndex + 1;
+    var trueStep = (step - configurator.initialStep) * -1;
+    if (trueStep < 0) {
+        trueStep = totalImages + trueStep;
+    }
+    return trueStep
 };
 var image = new Ractive({
     el: 'image',
@@ -43,13 +57,7 @@ option2.observe('selectedOption', function(newValue, oldValue) {
 });
 image.observe('selectedImage', function(step) {
 
-    var path =
-        'assets/shirts/' +
-            config.shirts[0].name +
-            '/base/' +
-            'base_' + step + '.jpg';
-
-    image.set('imageSrc', path);
+    image.set('imageSrc',   basePath(step));
     image.set('option1Src', optionPath('colar', option1Data.selectedOption, step));
     image.set('option2Src', optionPath('cuff', option2Data.selectedOption, step));
 });

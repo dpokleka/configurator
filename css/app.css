@@ -5,13 +5,18 @@
 
 .images .image {
     width: 80%;
-    margin: 0 auto;
+    margin: 0 10%;
 }
 
 .images .image-overlay {
     left: 0;
     position: absolute;
     top: 0;
+}
+#image .slider {
+    display: block;
+    width: 80%;
+    margin: 0 10%;
 }
 
 .progress-overlay {
