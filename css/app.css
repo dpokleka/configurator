@@ -1,4 +1,5 @@
 .images {
+    margin: 50px 0;
     position: relative;
 }
 
@@ -44,6 +45,6 @@
     .form-inline                         { font-size: 0; }
     .form-inline .form-group             { width: 50%; }
     .form-inline .form-group:first-child { padding: 0 2.5% 0 0%; }
-    .form-inline .form-group:last-child  { padding: 0 0    0 2.5%; }
+    .form-inline .form-group:last-child  { padding: 0 0    §0 2.5%; }
     .form-inline .form-control           { width: 100%; }
 }
