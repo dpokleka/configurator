@@ -69,23 +69,22 @@ var option2 = new Ractive({
 });
 
 option1.observe('selectedOption', function(selectedOption) {
-    $('.image').css({visibility: 'hidden'});
-    document.getElementById('image-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
-    document.getElementById(selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
-    document.getElementById(option2Data.selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
+    $('.image').css({opacity: 0});
+    document.getElementById('image-' + configurator.selectedImage).setAttribute('style', 'opacity: 1;');
+    document.getElementById(selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'opacity: 1;');
+    document.getElementById(option2Data.selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'opacity: 1;');
 });
 
 option2.observe('selectedOption', function(selectedOption) {
-    $('.image').css({visibility: 'hidden'});
-    document.getElementById('image-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
-    document.getElementById(option1Data.selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
-    document.getElementById(selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'visibility: visible;');
+    $('.image').css({opacity: 0});
+    document.getElementById('image-' + configurator.selectedImage).setAttribute('style', 'opacity: 1;');
+    document.getElementById(option1Data.selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'opacity: 1;');
+    document.getElementById(selectedOption + '-' + configurator.selectedImage).setAttribute('style', 'opacity: 1;');
 });
 
 image.observe('selectedImage', function(step) {
-    $('.image').css({visibility: 'hidden'});
-    document.getElementById('image-' + step).setAttribute('style', 'visibility: visible;');
-    document.getElementById(option1Data.selectedOption + '-' + step).setAttribute('style', 'visibility: visible;');
-    document.getElementById(option2Data.selectedOption + '-' + step).setAttribute('style', 'visibility: visible;');
+    $('.image').css({opacity: 0});
+    document.getElementById('image-' + step).setAttribute('style', 'opacity: 1;');
+    document.getElementById(option1Data.selectedOption + '-' + step).setAttribute('style', 'opacity: 1;');
+    document.getElementById(option2Data.selectedOption + '-' + step).setAttribute('style', 'opacity: 1;');
 });
-
