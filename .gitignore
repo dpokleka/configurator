@@ -2,8 +2,5 @@
 
 .idea/
 
-### Sass template
-.sass-cache
-
 bower_components
 .DS_Store

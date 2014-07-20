@@ -26,13 +26,12 @@
     </script>
 
     <script id="options" type="text/ractive">
-        <div class="options">
-            <select class="form-control" name="{{displayName}}" value={{selectedOption}}>
-                {{#values}}
-                    <option value="{{this}}">{{this}}</option>
-                {{/values}}
-            </select>
-        </div>
+        <label class="control-label" for="{{displayName}}">{{displayName}}</label>
+        <select class="form-control" id="{{displayName}}" value={{selectedOption}}>
+            {{#values}}
+                <option value="{{this}}">{{this}}</option>
+            {{/values}}
+        </select>
     </script>
     
     <div class="progress-overlay">
