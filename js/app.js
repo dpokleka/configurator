@@ -1,6 +1,3 @@
-//$(function(){
-//});
-
 var configurator = {};
 
 configurator = {};
@@ -21,7 +18,6 @@ var optionPath = function(optionName, optionValue, step) {
 var basePath = function(step) {
     return 'assets/shirts/' + config.shirts[0].name +
         '/base/' + 'base_' + calculateStep(step) + '.jpg';
-
 };
 var calculateStep = function(step) {
     var totalImages = configurator.lastImageIndex + 1;
@@ -31,6 +27,23 @@ var calculateStep = function(step) {
     }
     return trueStep
 };
+
+configurator.images = [];
+configurator.colarImages = [];
+configurator.cuffImages = [];
+
+for (var i = 0; i <= configurator.lastImageIndex; i++) {
+    configurator.images.push(basePath(i));
+
+    option1Data.values.forEach(function(value) {
+        configurator.colarImages.push(optionPath('colar', value, i));
+    });
+
+    option2Data.values.forEach(function(value) {
+        configurator.cuffImages.push(optionPath('cuff', value, i));
+    });
+}
+
 var image = new Ractive({
     el: 'image',
     template: '#template',
@@ -49,16 +62,24 @@ var option2 = new Ractive({
     data: option2Data
 });
 
-option1.observe('selectedOption', function(newValue, oldValue) {
-    image.set('option1Src', optionPath('colar', newValue, configurator.selectedImage));
+option1.observe('selectedOption', function(selectedOption) {
+    $('.image').css({visibility: 'hidden'});
+    $('img[src="' + basePath(configurator.selectedImage) + '"]').css({visibility: 'visible'});
+    $('img[src="' + optionPath('colar', selectedOption, configurator.selectedImage) + '"]').css({visibility: 'visible'});
+    $('img[src="' + optionPath('cuff', option2Data.selectedOption, configurator.selectedImage) + '"]').css({visibility: 'visible'});
 });
-option2.observe('selectedOption', function(newValue, oldValue) {
-    image.set('option2Src', optionPath('cuff', newValue, configurator.selectedImage));
-});
-image.observe('selectedImage', function(step) {
 
-    image.set('imageSrc',   basePath(step));
-    image.set('option1Src', optionPath('colar', option1Data.selectedOption, step));
-    image.set('option2Src', optionPath('cuff', option2Data.selectedOption, step));
+option2.observe('selectedOption', function(selectedOption) {
+    $('.image').css({visibility: 'hidden'});
+    $('img[src="' + basePath(configurator.selectedImage) + '"]').css({visibility: 'visible'});
+    $('img[src="' + optionPath('colar', option1Data.selectedOption, configurator.selectedImage) + '"]').css({visibility: 'visible'});
+    $('img[src="' + optionPath('cuff', selectedOption, configurator.selectedImage) + '"]').css({visibility: 'visible'});
+});
+
+image.observe('selectedImage', function(step) {
+    $('.image').css({visibility: 'hidden'});
+    $('img[src="' + basePath(step) + '"]').css({visibility: 'visible'});
+    $('img[src="' + optionPath('colar', option1Data.selectedOption, step) + '"]').css({visibility: 'visible'});
+    $('img[src="' + optionPath('cuff', option2Data.selectedOption, step) + '"]').css({visibility: 'visible'});
 });
 
