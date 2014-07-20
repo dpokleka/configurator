@@ -1,11 +1,15 @@
 .images {
     position: relative;
-    height: 380px;
 }
 
-.images img {
-    position: absolute;
+.images .image {
     width: 100%;
+}
+
+.images .image-overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
 }
 
 .options {
@@ -30,4 +34,16 @@
 
 .progress-bar {
     transition: none;
+}
+
+.form-inline {
+    padding: 0 10%;
+}
+
+@media (min-width: 768px) {
+    .form-inline                         { font-size: 0; }
+    .form-inline .form-group             { width: 50%; }
+    .form-inline .form-group:first-child { padding: 0 2.5% 0 0%; }
+    .form-inline .form-group:last-child  { padding: 0 0    0 2.5%; }
+    .form-inline .form-control           { width: 100%; }
 }

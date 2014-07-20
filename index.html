@@ -10,20 +10,23 @@
 <body>
 
     <div id="image"></div>
-    <div id="option1"></div>
-    <div id="option2"></div>
+
+    <div class="form-inline">
+        <div class="form-group" id="option1"></div>
+        <div class="form-group" id="option2"></div>        
+    </div>
 
     <script id='template' type='text/ractive'>
         <div class="images">
-            <img src="{{ shirt.path }}"/>
-            <img src="{{ option1.path }}"/>
-            <img src="{{ option2.path }}"/>
+            <img class="image" src="{{ shirt.path }}"/>
+            <img class="image image-overlay" src="{{ option1.path }}"/>
+            <img class="image image-overlay" src="{{ option2.path }}"/>
         </div>
     </script>
 
     <script id="options" type="text/ractive">
         <div class="options">
-            <select name="{{displayName}}" value={{selectedOption}}>
+            <select class="form-control" name="{{displayName}}" value={{selectedOption}}>
                 {{#values}}
                     <option value="{{this}}">{{this}}</option>
                 {{/values}}
@@ -33,10 +36,10 @@
     
     <div class="progress-overlay">
         <div class="progress">
-            <div class="progress-bar" style="width: 0%;"></div>
+            <div class="progress-bar progress-bar-striped" style="width: 0%;"></div>
         </div>
     </div>
-    
+
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/ractive/ractive.min.js"></script>
