@@ -59,6 +59,6 @@ for (var i = 0; i < paths.length; i++) {
         img.src = url;
     })(progressBar, paths[i], promises[i] = $.Deferred());
 }
-// $.when.apply($, promises).done(function() {
-//     console.log("loaded");
-// });
+$.when.apply($, promises).done(function() {
+    $(".progress-overlay").fadeOut();
+});

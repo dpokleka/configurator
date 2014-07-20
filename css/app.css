@@ -11,3 +11,23 @@
 .options {
     clear: both;
 }
+
+.progress-overlay {
+    align-items: center;
+    background: white;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.progress {
+    width: 80%;
+}
+
+.progress-bar {
+    transition: none;
+}
