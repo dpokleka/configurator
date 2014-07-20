@@ -32,7 +32,7 @@ var progressBar = (function ($) {
         console.log(SETTINGS);
         $.extend(SETTINGS, customSettings);
         $element = $(SETTINGS.element);
-    }
+    };
 
     return module;
 }(jQuery));
