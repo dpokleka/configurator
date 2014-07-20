@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 
-
 gulp.task('default', ['compress', 'minify-css', 'copy']);
 
 gulp.task('compress', function() {
