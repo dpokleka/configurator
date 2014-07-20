@@ -28,7 +28,6 @@ var progressBar = (function ($) {
     };
 
     module.init = function(customSettings) {
-        console.log(SETTINGS);
         $.extend(SETTINGS, customSettings);
         $element = $(SETTINGS.element);
     };

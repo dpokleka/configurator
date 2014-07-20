@@ -1,28 +1,19 @@
+body {
+    margin: 0 auto;
+    width: 700px;
+}
+
 .images {
-    margin: 50px 0;
-    position: relative;
-    height: 600px;
+    height: 540px;
 }
 
 .images .image {
-    /*width: 80%;*/
-    /*margin: 0 10%;*/
-    /*faster than with percentages*/
-    width: 700px;
-    margin: 0 150px;
-
     position: absolute;
     opacity: 0;
     -webkit-transform: translateZ(0);
     -moz-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
-}
-
-#image .slider {
-    display: block;
-    width: 80%;
-    margin: 0 10%;
 }
 
 .progress-overlay {
