@@ -1,16 +1,15 @@
 var paths = [],
     prefix = "assets/shirts/blueish/",
-    suffix = ".png",
     imagesPerObject = 35,
     objects = [
-        "base/base",
-        "options/colar/colar01/colar01",
-        "options/colar/colar02/colar02",
-        "options/colar/colar03/colar03",
-        "options/cuff/cuff01/cuff01",
-        "options/cuff/cuff02/cuff02",
-        "options/cuff/cuff03/cuff03",
-        "options/cuff/cuff04/cuff04"
+        { "path": "base/base", "suffix": ".jpg" },
+        { "path": "options/colar/colar01/colar01", "suffix": ".png" },
+        { "path": "options/colar/colar02/colar02", "suffix": ".png" },
+        { "path": "options/colar/colar03/colar03", "suffix": ".png" },
+        { "path": "options/cuff/cuff01/cuff01", "suffix": ".png" },
+        { "path": "options/cuff/cuff02/cuff02", "suffix": ".png" },
+        { "path": "options/cuff/cuff03/cuff03", "suffix": ".png" },
+        { "path": "options/cuff/cuff04/cuff04", "suffix": ".png" }
     ];
 
 var progressBar = (function ($) {
@@ -39,7 +38,7 @@ var progressBar = (function ($) {
 
 $.each(objects, function(index, object){
     for(var i = 0; i < imagesPerObject; i++) {
-        paths.push(prefix + object + "_" + i + suffix);
+        paths.push(prefix + object.path + "_" + i + object.suffix);
     }
 });
 

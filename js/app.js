@@ -47,7 +47,7 @@ image.observe('selectedImage', function(step) {
         'assets/shirts/' +
             config.shirts[0].name +
             '/base/' +
-            'base_' + step + '.png';
+            'base_' + step + '.jpg';
 
     image.set('imageSrc', path);
     image.set('option1Src', optionPath('colar', option1Data.selectedOption, step));
