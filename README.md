@@ -1,6 +1,6 @@
 # configurator
 
-Prototype for shirt configurator
+Prototype configurator
 
 ## development
 
